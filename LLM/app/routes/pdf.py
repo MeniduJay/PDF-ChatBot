@@ -3,8 +3,12 @@ from app.services.summary import generate_summary
 from app.services.pdf_utils import extract_text_from_pdf,get_text_chunks
 from app.services.llm_util import get_vector_store
 from app.services.qa import user_input
+from pydantic import BaseModel
 
 router = APIRouter()
+
+class QuestionRequest(BaseModel):
+    question: str
 
 @router.post("/upload/")
 async def upload_pdf(file: UploadFile = File(...)):
@@ -41,10 +45,12 @@ async def upload_pdf(file: UploadFile = File(...)):
 
     
 @router.post("/ask/")
-async def ask_question(question: str):
+async def ask_question(request: QuestionRequest):
     #Function to handle user question input
 
     try:
+
+        question = request.question.strip()
 
         if not question:
             raise HTTPException(status_code=400, detail="Question cannot be empty")
