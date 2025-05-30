@@ -1,11 +1,12 @@
 import os 
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.prompts import PromptTemplate
+from app.config import GOOGLE_API_KEY
 
 def generate_summary(text):
     # Function to generate a summary of the given text using Google Generative AI
 
-    model = ChatGoogleGenerativeAI(model="gemini-1.5-flash",temperature=0.3)
+    model = ChatGoogleGenerativeAI(model="gemini-1.5-flash",temperature=0.3, google_api_key=GOOGLE_API_KEY)
 
     prompt_template = """You are a research assistant. Based on the text provided below, extract a concise and structured summary with the following six sections:
 
