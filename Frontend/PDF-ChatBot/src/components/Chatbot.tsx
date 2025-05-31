@@ -57,7 +57,7 @@ export default function Chatbot() {
       {/* Header */}
       <div className="chatbot-header">
         <div className="header-content">
-          <h1 className="main-title">PDF Chatbot</h1>
+          <h1 className="main-title">PDF Research Assistant</h1>
           <p className="subtitle">
             Ask questions about your document and get instant answers
           </p>
