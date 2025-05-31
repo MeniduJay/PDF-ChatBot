@@ -1,49 +1,64 @@
-/* Upload Panel - Clean version without drag & drop */
+/* Upload Wrapper - Fixed height, no expansion */
+.upload-wrapper {
+  flex-shrink: 0; /* Don't shrink */
+  height: auto; /* Let content determine height */
+  max-height: 200px; /* Prevent excessive expansion */
+  width: 100%;
+  background-color: #1e1e2f;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.4);
+  z-index: 15; /* Below chat input */
+  overflow-y: auto; /* Scroll if content is too tall */
+  margin-bottom: 0px;
+  padding-bottom: 20px;
+}
+
+/* Upload Panel - Compact and contained */
 .upload-panel {
   background-color: #34343d;
   padding: 12px 16px;
+
   width: 100%;
   color: #fff;
   font-family: sans-serif;
   text-align: center;
   box-sizing: border-box;
-  padding-bottom: 30px;
+  min-height: fit-content; /* Only as tall as needed */
 }
 
 .upload-title {
-  margin: 0 0 12px;
-  font-size: 1rem;
+  margin: 0 0 8px;
+  font-size: 0.9rem;
   font-weight: 600;
 }
 
 .upload-subtitle {
-  margin: 0 0 12px;
-  font-size: 0.8rem;
+  margin: 0 0 8px;
+  font-size: 0.75rem;
   color: #aaa;
 }
 
 .file-input-section {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .file-limit {
   display: block;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   color: #888;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .browse-btn {
   display: inline-block;
-  padding: 8px 16px;
+  padding: 6px 12px;
   border: 1px solid #e05b5b;
   color: #e05b5b;
   background-color: transparent;
-  border-radius: 6px;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   transition: all 0.3s ease;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .browse-btn:hover {
@@ -55,37 +70,44 @@
   display: flex;
   align-items: center;
   background-color: #2a2a3d;
-  border-radius: 6px;
-  padding: 8px 10px;
-  margin-bottom: 12px;
-  gap: 8px;
+  border-radius: 4px;
+  padding: 6px 8px;
+  margin-bottom: 8px;
+  gap: 6px;
+  max-height: 40px; /* Limit height */
 }
 
 .file-icon {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #4a90e2;
+  flex-shrink: 0;
 }
 
 .file-name {
   flex-grow: 1;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .file-size {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: #bbb;
+  flex-shrink: 0;
 }
 
 .remove-btn {
   background: none;
   border: none;
   color: #ff6b6b;
-  font-size: 1rem;
+  font-size: 0.9rem;
   cursor: pointer;
   padding: 2px;
-  border-radius: 3px;
+  border-radius: 2px;
   transition: background-color 0.3s ease;
+  flex-shrink: 0;
 }
 
 .remove-btn:hover {
@@ -94,14 +116,14 @@
 
 .upload-submit {
   width: 100%;
-  padding: 10px;
+  padding: 8px;
   background-color: #4a90e2;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 4px;
   cursor: pointer;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   transition: background-color 0.3s ease;
 }
 
@@ -112,4 +134,23 @@
 .upload-submit:disabled {
   background-color: #555;
   cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .upload-wrapper {
+    max-height: 180px;
+  }
+
+  .upload-panel {
+    padding: 10px 12px;
+  }
+
+  .upload-title {
+    font-size: 0.85rem;
+  }
+
+  .upload-subtitle {
+    font-size: 0.7rem;
+  }
 }
