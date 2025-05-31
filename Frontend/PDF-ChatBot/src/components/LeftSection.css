@@ -1,0 +1,17 @@
+/* Left Section Container */
+.left-section-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Summary Wrapper - Takes most of the space */
+.summary-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0; /* Important for flex child with overflow */
+}
