@@ -27,6 +27,15 @@ A full-stack application that allows users to upload research papers (PDFs), gen
 
 ---
 
+📁 Project Structure
+PDF-ChatBot/
+├── Frontend/          # React TypeScript application
+├── Node-server/       # Express.js backend API
+├── LLM/              # FastAPI Python AI service
+│   ├── .env          # Environment variables (create this)
+│   └── .env.example  # Environment template
+└── README.md         # This file
+
 ## 📦 Prerequisites
 
 - [Node.js](https://nodejs.org/) (v16 or higher)
@@ -153,12 +162,5 @@ Verify your API key is correctly configured
 Ensure all dependencies are installed
 Check the console logs for error messages
 
-📁 Project Structure
-PDF-ChatBot/
-├── Frontend/          # React TypeScript application
-├── Node-server/       # Express.js backend API
-├── LLM/              # FastAPI Python AI service
-│   ├── .env          # Environment variables (create this)
-│   └── .env.example  # Environment template
-└── README.md         # This file
+
 ```
