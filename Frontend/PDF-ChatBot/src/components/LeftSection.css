@@ -1,17 +1,30 @@
 /* Left Section Container */
 .left-section-container {
+  /* antique parchment tones */
+  border-right: 2px solid #c5bca2;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 20px;
-  overflow: hidden;
+  padding: 24px;
   box-sizing: border-box;
+  font-family: "Georgia", serif;
+  color: #2f2f2f;
+  box-shadow: inset -5px 0 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Summary Wrapper - Takes most of the space */
+/* Summary Wrapper - scrollable area inside left section */
 .summary-wrapper {
   flex: 1;
   overflow-y: auto;
-  min-height: 0; /* Important for flex child with overflow */
+  min-height: 0;
+  padding: 16px;
+  /* background: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); */
+  /* slightly transparent overlay for depth */
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
 }

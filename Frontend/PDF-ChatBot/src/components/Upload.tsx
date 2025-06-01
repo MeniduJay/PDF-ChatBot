@@ -8,10 +8,12 @@ type UploadProps = {
 
 const Upload: React.FC<UploadProps> = ({ onSummaryReceived }) => {
   const [file, setFile] = useState<File | null>(null);
+  const [loading, setLoading] = useState(false);
 
   const handleUpload = async () => {
     if (!file) return;
 
+    setLoading(true);
     const formData = new FormData();
     formData.append("file", file);
 
@@ -25,6 +27,8 @@ const Upload: React.FC<UploadProps> = ({ onSummaryReceived }) => {
       onSummaryReceived(data.summary);
     } catch (error) {
       console.error("Upload failed:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -66,9 +70,17 @@ const Upload: React.FC<UploadProps> = ({ onSummaryReceived }) => {
         </div>
       )}
 
-      <button className="upload-submit" onClick={handleUpload} disabled={!file}>
-        Upload & Summarize
-      </button>
+      {loading ? (
+        <div className="spinner"></div>
+      ) : (
+        <button
+          className="upload-submit"
+          onClick={handleUpload}
+          disabled={!file}
+        >
+          Upload & Summarize
+        </button>
+      )}
     </div>
   );
 };

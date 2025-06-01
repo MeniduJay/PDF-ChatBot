@@ -43,7 +43,7 @@ const Summary: React.FC<SummaryProps> = ({ summary }) => {
   if (!summary) {
     return (
       <div className="summary-container">
-        <h3 className="summary-title">Summary</h3>
+        <h2 className="summary-title">Summary Section</h2>
         <p className="summary-placeholder">Upload a PDF to get a summary</p>
       </div>
     );

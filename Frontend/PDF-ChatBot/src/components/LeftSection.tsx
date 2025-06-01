@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import Summary from "./summary";
-import Upload from "./upload";
+
 import "./LeftSection.css";
 
 interface LeftSectionProps {
