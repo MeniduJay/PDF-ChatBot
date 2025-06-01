@@ -6,22 +6,15 @@ type SummaryProps = {
 };
 
 const Summary: React.FC<SummaryProps> = ({ summary }) => {
-  // Parse the summary string into sections
-  // Each section starts with "**Title**" followed by content (possibly multiple lines)
   const sections = React.useMemo(() => {
     if (!summary) return [];
 
-    // Split by double newlines (paragraphs), but we'll group by section titles
-    // Split by "\n\n**" so that each element starts with "**Title** ..."
-    // But since the first section starts with "**", we normalize by adding a marker if needed
+    //Formating summary text which is in markup format to readable format
 
     // Normalize summary: ensure it starts with "**"
     const normalized = summary.trim().startsWith("**")
       ? summary.trim()
       : "**" + summary.trim();
-
-    // Split by "\n\n**" but keep the "**" on each part by splitting on "\n\n" then checking for "**"
-    // More robust way: use regex to extract sections
 
     const regex = /\*\*(.+?)\*\*\s+([\s\S]*?)(?=(\n\n\*\*|$))/g;
     // This regex means:
@@ -55,7 +48,7 @@ const Summary: React.FC<SummaryProps> = ({ summary }) => {
       {sections.map(({ title, content }) => (
         <div key={title} className="summary-section">
           <h4 className="summary-section-title">{title}</h4>
-          {/* Split content by line breaks and render each as a paragraph */}
+
           {content.split("\n").map((line, idx) =>
             line.trim() ? (
               <p key={idx} className="summary-section-content">

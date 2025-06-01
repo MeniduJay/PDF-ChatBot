@@ -4,7 +4,7 @@ import Summary from "./summary";
 import "./LeftSection.css";
 
 interface LeftSectionProps {
-  summary: string; // Change 'string' to the correct type if needed
+  summary: string;
 }
 
 export default function LeftSection({ summary }: LeftSectionProps) {

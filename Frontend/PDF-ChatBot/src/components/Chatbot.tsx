@@ -38,7 +38,6 @@ export default function Chatbot() {
   const handleButtonClick = () => {
     if (!question.trim()) return;
 
-    // Create a synthetic event object
     const syntheticEvent = {
       preventDefault: () => {},
     } as React.FormEvent;

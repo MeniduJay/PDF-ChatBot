@@ -140,6 +140,7 @@ Wait for Processing: The system will extract text and generate a structured summ
 Review Summary: View the auto-generated sections (Title, Abstract, Methodology, etc.)
 Start Chatting: Use the chat interface to ask questions about the document
 
+
 Example Questions You Can Ask
 "What is the main hypothesis of this research?"
 "Summarize the methodology used in this study"

@@ -10,8 +10,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Middleware to handle multipart/form-data
-// This is used for file uploads
+// Middleware used for file uploading
 const upload = multer({
   dest: "uploads/",
   limits: { fileSize: 2000 * 1024 * 1024 }, // Limit file size to 200MB
@@ -27,8 +26,6 @@ const upload = multer({
 // Endpoint to handle file upload
 app.post("/upload", upload.single("file"), async (req, res) => {
   try {
-    // const filestream = fs.createReadStream(req.file.path);
-
     const form = new FormData();
     form.append(
       "file",
@@ -44,7 +41,7 @@ app.post("/upload", upload.single("file"), async (req, res) => {
       maxBodyLength: Infinity,
     });
 
-    fs.unlinkSync(req.file.path, () => {}); // Clean up the uploaded file
+    fs.unlinkSync(req.file.path, () => {});
 
     res.json(response.data);
   } catch (error) {
@@ -53,7 +50,7 @@ app.post("/upload", upload.single("file"), async (req, res) => {
   }
 });
 
-// 🔥 Error handling middleware for Multer and custom errors
+//  Error handling middleware for Multer and custom errors
 app.use((err, req, res, next) => {
   if (err instanceof multer.MulterError) {
     if (err.code === "LIMIT_FILE_SIZE") {
@@ -67,7 +64,6 @@ app.use((err, req, res, next) => {
       .json({ error: "Invalid file type. Only PDFs are allowed." });
   }
 
-  // Generic fallback
   return res.status(500).json({ error: "Something went wrong." });
 });
 
