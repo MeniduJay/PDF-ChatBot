@@ -29,12 +29,12 @@ A full-stack application that allows users to upload research papers (PDFs), gen
 
 📁 Project Structure
 PDF-ChatBot/
-├── Frontend/          # React TypeScript application
-├── Node-server/       # Express.js backend API
-├── LLM/              # FastAPI Python AI service
-│   ├── .env          # Environment variables (create this)
-│   └── .env.example  # Environment template
-└── README.md         # This file
+├── Frontend/ # React TypeScript application
+├── Node-server/ # Express.js backend API
+├── LLM/ # FastAPI Python AI service
+│ ├── .env # Environment variables (create this)
+│ └── .env.example # Environment template
+└── README.md # This file
 
 ## 📦 Prerequisites
 
@@ -65,6 +65,19 @@ cd ..
 
 
 # Install Python Backend  Dependencies
+
+# Optional but recommended: create a virtual environment
+python -m venv venv
+
+# Activate the virtual environment
+# On Windows:
+venv\Scripts\activate
+
+# On macOS/Linux:
+source venv/bin/activate
+
+# Install dependencies
+
 cd LLM &&
 pip install -r requirements.txt && (if it doesnt work use "py -m pip install -r requirements.txt")
 cd..
@@ -101,9 +114,13 @@ Terminal 1 - Python AI Service:
 
 bash
 cd LLM
-python -m uvicorn main:app --reload --port 8000
-Terminal 2 - Node Backend:
 
+python -m uvicorn main:app --reload --port 8000
+or
+py -m uvicorn app.main:app --reload --port 8000
+
+
+Terminal 2 - Node Backend:
 bash
 cd Node-server
 npm run dev
