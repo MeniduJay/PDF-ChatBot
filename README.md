@@ -110,24 +110,24 @@ GEMINI_API_KEY=your_actual_api_key_from_google_ai_studio
 # GEMINI_API_KEY=AIzaSyD1234567890abcdefghijklmnopqrstuvwxyz
 
 3. Run All Services
-Terminal 1 - Python AI Service:
 
+
+Terminal 1 - Python AI Service:
 bash
 cd LLM
-
-python -m uvicorn main:app --reload --port 8000
-or
-py -m uvicorn app.main:app --reload --port 8000
+py -m uvicorn app.main:app
 
 
 Terminal 2 - Node Backend:
 bash
 cd Node-server
 npm run dev
-Terminal 3 - React Frontend:
 
+
+Terminal 3 - React Frontend:
 bash
 cd Frontend
+cd PDF-Chatbot
 npm run dev
 
 
@@ -139,6 +139,7 @@ Upload PDF: Click the upload button and select a research paper (PDF format)
 Wait for Processing: The system will extract text and generate a structured summary
 Review Summary: View the auto-generated sections (Title, Abstract, Methodology, etc.)
 Start Chatting: Use the chat interface to ask questions about the document
+
 Example Questions You Can Ask
 "What is the main hypothesis of this research?"
 "Summarize the methodology used in this study"
