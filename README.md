@@ -66,7 +66,7 @@ cd ..
 
 # Install Python Backend  Dependencies
 cd LLM &&
-pip install -r requirements.txt &&
+pip install -r requirements.txt && (if it doesnt work use "py -m pip install -r requirements.txt")
 cd..
 
 
